@@ -1,6 +1,14 @@
 ToyApp::Application.routes.draw do
-  resources :users
+  resources :microposts
 
+
+  resources :users do
+    member do
+      get "microposts" => 'users#microposts', as: "microposts"
+    end
+  end
+
+  root :to => 'users#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,9 @@
+<h1>micropost of <%= @user.name%></h1>
+<ol>
+  <%@microposts.each do |micro|%>
+  <li><%=link_to micro.content, micro%></li>
+<%end%>
+</ol>
+<% if @microposts.count == 0%>
+  <p>without micropost</p>
+<%end%>

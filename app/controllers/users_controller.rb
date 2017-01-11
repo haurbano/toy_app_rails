@@ -80,4 +80,9 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def microposts
+    @user = User.find(params[:id])
+    @microposts = Micropost.where(user_id: @user.id)
+  end
 end
